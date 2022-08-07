@@ -40,7 +40,7 @@ SELECT id,
        title,
        description,
        body,
-       image,
+       COALESCE(NULLIF(image,''), '/placeholder.png') as image,
        created_at,
        updated_at,
        (SELECT username FROM users WHERE id = seller_id) AS seller_username
